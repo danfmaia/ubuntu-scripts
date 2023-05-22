@@ -3,6 +3,12 @@
 # get the window ID of the target window
 WINDOW_ID=$(wmctrl -l | grep "Android Emulator - " | awk '{print $1}')
 
+# check if the window ID is empty
+if [[ -z "$WINDOW_ID" ]]; then
+  echo "Emulator window not found. Exiting."
+  exit 1
+fi
+
 # define the code to execute when the window is maximized
 function on_maximize() {
   wmctrl -i -r $(wmctrl -l | grep ' Android Emulator - ' | sed -e 's/\s.*$//g') -b add,above
@@ -20,6 +26,15 @@ WINDOW_STATE="unknown"
 
 # loop forever and check for window events
 while true; do
+  # check if the window still exists
+  wmctrl -l | grep -q "$WINDOW_ID"
+  WINDOW_EXISTS=$?
+
+  if [[ $WINDOW_EXISTS -ne 0 ]]; then
+    echo "Emulator window closed. Exiting."
+    exit 0
+  fi
+
   # wait for the window to be maximized or minimized
   geometry_output=$(xdotool getwindowgeometry $WINDOW_ID 2>&1)
 
