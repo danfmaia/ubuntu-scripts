@@ -1,0 +1,41 @@
+You are an experienced Python and YAML programmer.
+
+I want you to write a Python terminal program that aims to generate a GPT prompt for writing a detailed PR description. The program is for generation a GPT prompt! Not for directly generating the PR description!
+
+This script must:
+
+1) Ask the user for the desired language. Currently with only 2 options: pt-br and en. The default is pt-br.
+
+2) Ask the user for the PR name.
+
+3) Ask the user for the work branch and the target branch names.
+
+4) Generate a .txt file with the PR name and all its commit data (based on the selected branches). The data part of the file is in .json. The file must have the following format:
+
+"""
+Given the following data of a PR:
+{
+  "pr_name": "[PR name]",
+  "commit_data": [
+    {
+      "name": "[Commit 1 name]",
+      "diff": "[Diff code for commit 1]"
+    },
+    {
+      "name": "[Commit 2 name]",
+      "diff": "[Diff code for commit 2]"
+    },
+    {
+      "name": "[Commit 3 name]",
+      "diff": "[Diff code for commit 3]"
+    }
+    // Add more commit data as needed
+  ]
+}
+
+And this extra instruction: [extra info]
+
+Give me a detailed description of the PR. Organize the text in titled topics, if necessary. Use Markdown formatting.
+"""
+
+Before giving me the code, tell me if the requirements are clear enough for you.
