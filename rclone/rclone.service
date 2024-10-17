@@ -1,0 +1,31 @@
+[Unit]
+Description=Rclone Mount Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+
+ExecStartPre=/bin/sleep 5
+
+ExecStart=/usr/bin/rclone --config=/home/danfmaia/.config/rclone/rclone.conf \
+	mount Google_Drive: /home/danfmaia/gdrive \
+	--daemon \
+	--vfs-cache-mode=writes \
+	--allow-non-empty \
+	--log-file=/home/danfmaia/rclone.log
+
+ExecStart=/usr/bin/rclone --config=/home/danfmaia/.config/rclone/rclone.conf \
+	mount OneDrive: ~/OneDrive \
+	--daemon \
+	--vfs-cache-mode=writes \
+	--allow-non-empty \
+	--log-file=/home/danfmaia/rclone.log
+
+User=danfmaia
+Group=danfmaia
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
