@@ -4,27 +4,17 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-Type=oneshot
-
+Type=notify
 ExecStartPre=/bin/sleep 5
 
 ExecStart=/usr/bin/rclone --config=/home/danfmaia/.config/rclone/rclone.conf \
-	mount Google_Drive: /home/danfmaia/gdrive \
-	--daemon \
-	--vfs-cache-mode=writes \
-	--allow-non-empty \
-	--log-file=/home/danfmaia/rclone.log
+    mount Google_Drive: /home/danfmaia/gdrive --daemon --vfs-cache-mode=writes --allow-non-empty --log-file=/home/danfmaia/rclone-gdrive.log \
+    && /usr/bin/rclone --config=/home/danfmaia/.config/rclone/rclone.conf \
+    mount OneDrive: ~/OneDrive --daemon --vfs-cache-mode=writes --allow-non-empty --log-file=/home/danfmaia/rclone-onedrive.log
 
-ExecStart=/usr/bin/rclone --config=/home/danfmaia/.config/rclone/rclone.conf \
-	mount OneDrive: ~/OneDrive \
-	--daemon \
-	--vfs-cache-mode=writes \
-	--allow-non-empty \
-	--log-file=/home/danfmaia/rclone.log
-
-User=danfmaia
-Group=danfmaia
+#User=danfmaia
 Restart=on-failure
+#Group=danfmaia
 RestartSec=5s
 
 [Install]
