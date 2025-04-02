@@ -1,0 +1,8 @@
+user_input_handling,COVERED
+process_detection,COVERED
+disk_space_analysis,COVERED
+memory_analysis,COVERED
+settings_handling,COVERED
+extension_management,COVERED
+cache_management,COVERED
+file_opening,COVERED

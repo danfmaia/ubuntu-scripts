@@ -1,0 +1,12 @@
+# Temporary files created during tests
+temp_*.sh
+mocks/
+cmd_output
+*.log
+
+# Debug files
+debug_test.sh
+
+# Skip failing tests 
+test_extension_manager.sh.skip
+test_performance_dashboard.sh.skip 

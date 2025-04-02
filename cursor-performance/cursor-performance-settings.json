@@ -1,0 +1,23 @@
+{
+  "editor.cursorSmoothCaretAnimation": false,
+  "editor.smoothScrolling": false,
+  "editor.renderWhitespace": "none",
+  "editor.minimap.enabled": false,
+  "editor.renderControlCharacters": false,
+  "editor.renderLineHighlight": "none",
+  "workbench.enableExperiments": false,
+  "workbench.colorDecorators": false,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.guides.indentation": false,
+  "editor.occurrencesHighlight": false,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "workbench.editor.enablePreview": false,
+  "window.autoDetectColorScheme": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "files.autoSave": "off",
+  "diffEditor.renderSideBySide": false,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.suggest.showStatusBar": false,
+  "telemetry.telemetryLevel": "off"
+}

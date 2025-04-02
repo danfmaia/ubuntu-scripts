@@ -1,0 +1,5 @@
+process_detection,COVERED
+disk_space_analysis,UNCOVERED
+memory_analysis,COVERED
+extension_management,UNCOVERED
+cache_management,COVERED
